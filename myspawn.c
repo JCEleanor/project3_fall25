@@ -6,7 +6,8 @@
 
 extern char **environ;
 
-int main() {
+int main()
+{
     pid_t pid;
     char *argv[] = {"echo", "Hello from the spawned process!", NULL};
     int status;
@@ -19,18 +20,21 @@ int main() {
     // posix_spawnattr_setflags(&attr, POSIX_SPAWN_SETSCHEDULER);
 
     // Spawn a new process
-    if (posix_spawnp(&pid, "echo", NULL, &attr, argv, environ) != 0) {
+    if (posix_spawnp(&pid, "echo", NULL, &attr, argv, environ) != 0)
+    {
         perror("spawn failed");
         exit(EXIT_FAILURE);
     }
 
     // Wait for the spawned process to terminate
-    if (waitpid(pid, &status, 0) == -1) {
+    if (waitpid(pid, &status, 0) == -1)
+    {
         perror("waitpid failed");
         exit(EXIT_FAILURE);
     }
 
-    if (WIFEXITED(status)) {
+    if (WIFEXITED(status))
+    {
         printf("Spawned process exited with status %d\n", WEXITSTATUS(status));
     }
 
