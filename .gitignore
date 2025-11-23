@@ -1,0 +1,15 @@
+# Compiled executables
+rsh
+a.out
+rsh.dSYM/ 
+# Object files
+*.o
+
+# Editor/IDE specific files
+.vscode/
+*.swp
+*~
+
+# Core dump files
+core
+
